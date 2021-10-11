@@ -10,7 +10,7 @@ weatherForm.addEventListener('submit', (e)=>{
     p2.textContent=""
     p1.classList.add("lds-dual-ring")
     const location=search.value
-    axios.get(`http://localhost:3000/weather?address=${location}`)
+    axios.get(`/weather?address=${location}`)
     .then((response)=>{
         if(response.data.error){
             throw "No weather data found"
@@ -32,7 +32,7 @@ function geoFindMe() {
     function success(position) {
       const latitude  =position.coords.latitude;
       const longitude =position.coords.longitude;
-      axios.get(`http://localhost:3000/weather?latitude=${latitude}&longitude=${longitude}`)
+      axios.get(`/weather?latitude=${latitude}&longitude=${longitude}`)
       .then((response)=>{
           if(response.data.error){
               throw "No weather data found"
